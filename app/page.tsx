@@ -1,95 +1,66 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client'
+
+import React,{ useState } from "react";
+import { CourseBox } from "./components/CourseBox";
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+  let [course, setCourse] = useState<string>("");
+  let [courseList, setCourseList] = useState<string[]>([]);
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+  
+  // add course part
+  const clickAddCourse = function () {
+    if (course !== "") {
+      setCourseList([...courseList, course]);
+      setCourse("");
+      document.querySelector<any>("#inputTag").value = "";
+    }
+  };
+
+  // course list part
+  const clickDeleteCourse = (test:string) => {
+    setCourseList(courseList.filter((res) => res !== test));
+  };
+  const clickSaveCourse = function (test:string) {
+    setCourseList(
+      courseList.map((res) => {
+        if (test == res && !test.includes("(saved)")) {
+          return (res += "(saved)");
+        }
+        return res;
+      })
+    );
+  };
+  return (<div className="App">
+  <h1>Course App</h1>
+  {/* addCourse part  */}
+  <div className="add-course-part">
+    <h3 className="title">Add Course Part</h3>
+    <label>Write Course Name :</label>
+    <input
+      type="text"
+      onChange={(event) => setCourse(event.target.value)}
+      id="inputTag"
+    ></input>
+    <br />
+    <button onClick={clickAddCourse}>Add course</button>
+  </div>
+  {/* courseList part  */}
+  <div className="course-list">
+    <h3>Course List Part</h3>
+    {courseList.map((item, index) => {
+      return (
+        <CourseBox
+          key={index}
+          index={index}
+          item={item}
+          clickSaveCourse={clickSaveCourse}
+          clickDeleteCourse={clickDeleteCourse}
         />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      );
+    })}
+  </div>
+</div>
+  
   )
 }
