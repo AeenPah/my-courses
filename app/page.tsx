@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useState } from "react";
+import React from "react";
 
 //components
 import { AddCourse } from "./components/AddCourse";
