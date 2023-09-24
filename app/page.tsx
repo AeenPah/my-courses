@@ -3,8 +3,8 @@
 import React from "react";
 
 //components
-import { AddCourse } from "./components/AddCourse";
-import { CourseList } from "./components/CourseList";
+import { AddCourse } from "./components/AddCourse/AddCourse";
+import { CourseList } from "./components/CourseList/CourseList";
 
 export default function Home() {
   return (

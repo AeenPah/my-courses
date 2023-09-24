@@ -1,5 +1,6 @@
+import "./AddCourse.css";
 import { useContext } from "react";
-import { CourseContext } from "../context/myContext";
+import { CourseContext } from "../../context/myContext";
 
 export const AddCourse = () => {
   const { course, setCourse, courseList, setCourseList } =

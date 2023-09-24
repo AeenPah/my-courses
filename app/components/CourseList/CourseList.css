@@ -1,0 +1,39 @@
+/* course list */
+.course-list {
+  width: 75vw;
+  background-color: lightpink;
+  padding: 30px;
+  border: 5px solid rgb(251, 203, 210);
+  border-radius: 15px;
+  margin: 20px auto;
+}
+
+.each-course {
+  margin-bottom: 20px;
+}
+.each-course .course-name {
+  font-size: 1.2rem;
+  font-weight: 650;
+}
+
+.each-course button {
+  height: 25px;
+  width: 60px;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 10px 0 10px;
+  background-color: rgb(237, 108, 108);
+  color: white;
+}
+.each-course button:hover {
+  background-color: rgb(176, 71, 71);
+  color: rgb(207, 206, 206);
+}
+.each-course button.save:active {
+  background-color: rgb(143, 199, 143);
+  color: white;
+}
+.each-course button.delete:active {
+  background-color: rgb(214, 59, 59);
+  color: white;
+}

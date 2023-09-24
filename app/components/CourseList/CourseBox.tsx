@@ -1,3 +1,5 @@
+import "./CourseList.css";
+
 interface ICourse {
   index: number;
   eachCourse: string;
