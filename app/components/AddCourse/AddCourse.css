@@ -1,0 +1,38 @@
+/* add course part  */
+.add-course-part {
+  width: 75vw;
+  background-color: lightblue;
+  padding: 30px;
+  border: 5px solid rgb(208, 234, 243);
+  border-radius: 15px;
+  margin: 20px auto;
+}
+
+.add-course-part .title {
+  margin: 20px 0;
+}
+
+.add-course-part input {
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  padding-left: 8px;
+  margin: 0 0 20px 10px;
+}
+
+.add-course-part button {
+  font-size: 1.1rem;
+  padding: 10px;
+  background-color: lightseagreen;
+  border: none;
+  border-radius: 8px;
+  color: white;
+}
+.add-course-part button:hover {
+  background-color: rgb(9, 135, 129);
+  color: rgb(216, 216, 216);
+}
+.add-course-part button:active {
+  background-color: rgb(3, 96, 91);
+  color: white;
+}
