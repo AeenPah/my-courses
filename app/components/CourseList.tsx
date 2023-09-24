@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CourseContext } from "../page";
+import { CourseContext } from "../context/myContext";
 import { CourseBox } from "./CourseBox";
 
 export const CourseList = (props: any) => {
@@ -22,7 +22,7 @@ export const CourseList = (props: any) => {
   return (
     <div className="course-list">
       <h3>Course List Part</h3>
-      {props.courseList.map((item: any, index: any) => {
+      {courseList.map((item: any, index: any) => {
         return (
           <CourseBox
             key={index}

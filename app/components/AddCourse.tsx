@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CourseContext } from "../page";
+import { CourseContext } from "../context/myContext";
 
 export const AddCourse = (props: any) => {
   const { course, setCourse, courseList, setCourseList } =
@@ -19,7 +19,7 @@ export const AddCourse = (props: any) => {
       <label>Write Course Name : </label>
       <input
         type="text"
-        onChange={(event) => props.setCourse(event.target.value)}
+        onChange={(event) => setCourse(event.target.value)}
         id="inputTag"
       ></input>
       <br />
